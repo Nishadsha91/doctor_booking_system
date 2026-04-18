@@ -1,0 +1,26 @@
+<h2>Doctor Slots for {{ doctor.user.username }}</h2>
+
+<form method="GET">
+    <label>Date</label>
+    <input type="date" name="date" value="{{ date }}" required>
+    <button type="submit">Show Slots</button>
+</form>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% if date %}
+    <h3>Slots on {{ date }}</h3>
+    {% if slots %}
+        <ul>
+        {% for slot in slots %}
+            <li>{{ slot }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No available slots for this date.</p>
+    {% endif %}
+{% endif %}
+
+<p><a href="{% url 'doctor-list-dashboard' %}">Back to doctor list</a></p>

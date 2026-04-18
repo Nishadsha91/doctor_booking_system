@@ -1,0 +1,24 @@
+<h2>Update Doctor</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<label>Username</label>
+<input type="text" name="username" value="{{ doctor.user.username }}" required>
+
+<label>Start Time</label>
+<input type="time" name="start_time" value="{{ doctor.start_time }}" required>
+
+<label>End Time</label>
+<input type="time" name="end_time" value="{{ doctor.end_time }}" required>
+
+<label>Slot Duration</label>
+<input type="number" name="slot_duration" value="{{ doctor.slot_duration }}" required>
+
+<label>Consultations per day</label>
+<input type="number" name="consultation_per_day" value="{{ doctor.consultation_per_day }}" required>
+
+<button type="submit">Update</button>
+</form>
+
+<p><a href="{% url 'doctor-list-dashboard' %}">Back to doctor list</a></p>

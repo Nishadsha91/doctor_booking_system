@@ -1,0 +1,24 @@
+<h2>Create Doctor</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<label>Username</label>
+<input type="text" name="username" required>
+
+<label>Password</label>
+<input type="password" name="password" required>
+
+<label>Start Time</label>
+<input type="time" name="start_time" required>
+
+<label>End Time</label>
+<input type="time" name="end_time" required>
+
+<label>Slot Duration</label>
+<input type="number" name="slot_duration" required>
+
+<button type="submit">Create</button>
+</form>
+
+<p><a href="{% url 'doctor-list-dashboard' %}">Back to doctor list</a></p>

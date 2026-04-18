@@ -1,0 +1,30 @@
+<h2>Doctors</h2>
+
+<a href="{% url 'create-doctor' %}">Create Doctor</a>
+
+<table border="1">
+<tr>
+<th>ID</th>
+<th>Doctor</th>
+<th>Start Time</th>
+<th>End Time</th>
+<th>Slot Duration</th>
+<th>Actions</th>
+</tr>
+
+{% for doctor in doctors %}
+<tr>
+<td>{{ doctor.id }}</td>
+<td>{{ doctor.user.username }}</td>
+<td>{{ doctor.start_time }}</td>
+<td>{{ doctor.end_time }}</td>
+<td>{{ doctor.slot_duration }}</td>
+<td>
+    <a href="{% url 'delete-doctor' doctor.id %}">Delete</a>
+</td>
+</tr>
+{% empty %}
+<tr><td colspan="6">No doctors found.</td></tr>
+{% endfor %}
+
+</table>
